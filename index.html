@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0e13">
-  <meta name="description" content="«Семь минут» — история Амиры и Ромы о трёх городах, одной случайной переписке и времени, которого иногда достаточно, чтобы сказать главное.">
+  <meta name="description" content="«Семь минут» — расширенная история Амиры и Ромы: 60 глав, две семьи, Арчи, Армавир, Ростов, Бердянск и 120 атмосферных кадров без лиц.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Семь минут — фанфик">
-  <meta property="og:description" content="60 глав. Армавир, Ростов-на-Дону и история Лисёнка и Котика.">
+  <meta property="og:description" content="60 глав, 71 295 слов и 120 атмосферных кадров. История Лисёнка, Котика и двух непростых семей.">
   <meta property="og:image" content="assets/hero.webp">
   <meta name="twitter:card" content="summary_large_image">
   <title>Семь минут — история Амиры и Ромы</title>
@@ -16,7 +16,6 @@
   <link rel="preload" href="assets/hero.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
-  <script src="family-arc.js" defer></script>
 </head>
 <body>
   <div class="page-progress" aria-hidden="true"><span id="pageProgress"></span></div>
@@ -32,6 +31,7 @@
 
     <nav class="main-nav" aria-label="Главная навигация">
       <a href="#story">История</a>
+      <a href="#families">Семьи</a>
       <a href="#gallery">Кадры</a>
       <a href="#reader">Читать</a>
     </nav>
@@ -52,7 +52,7 @@
       <div class="hero-content container">
         <p class="eyebrow reveal"><span></span> роман в шестидесяти главах</p>
         <h1 id="heroTitle" class="reveal reveal-delay-1">Семь<br><em>минут</em></h1>
-        <p class="hero-lead reveal reveal-delay-2">Иногда случайная переписка — просто несколько строк на экране. А иногда она становится дорогой из Армавира в Ростов и меняет две жизни.</p>
+        <p class="hero-lead reveal reveal-delay-2">Случайная переписка становится дорогой из Армавира в Ростов — через семейные запреты, Бердянск, больничный коридор и семь минут, в которые всё-таки удаётся сказать правду.</p>
         <div class="hero-actions reveal reveal-delay-3">
           <a class="primary-button" id="continueReading" href="#reader">
             <span id="continueLabel">Начать читать</span>
@@ -63,9 +63,9 @@
 
         <dl class="hero-stats reveal reveal-delay-3">
           <div><dt>60</dt><dd>глав</dd></div>
-          <div><dt>58 681</dt><dd>слов</dd></div>
-          <div><dt>2</dt><dd>города</dd></div>
-          <div><dt>7</dt><dd>минут на правду</dd></div>
+          <div><dt>71 295</dt><dd>слов</dd></div>
+          <div><dt>120</dt><dd>кадров без лиц</dd></div>
+          <div><dt>2</dt><dd>семьи</dd></div>
         </dl>
       </div>
 
@@ -81,12 +81,12 @@
       <div class="container story-grid">
         <div class="section-heading">
           <p class="eyebrow dark"><span></span> о книге</p>
-          <h2>Одна случайность.<br>Три города.<br><em>И целая жизнь внутри.</em></h2>
+          <h2>Одна случайность.<br>Два города.<br><em>И целая жизнь внутри.</em></h2>
         </div>
 
         <div class="story-copy">
-          <p class="story-intro">Амира жила в Армавире и не собиралась доверять незнакомцу из «Некто Ми». Рома всего лишь вмешался в чужой грубый разговор. Они должны были разойтись через несколько сообщений — но остались.</p>
-          <p>Переезд в Ростов-на-Дону превратил экранное знакомство в настоящее. Дальше были книжный магазин, красные ремешки, фотографии, новые школы, ссоры, примирения и их собственное правило: когда слова заканчиваются, попросить друг у друга ещё семь честных минут.</p>
+          <p class="story-intro">Амира жила в Армавире, гуляла с овчаркой Арчи и не собиралась доверять незнакомцу из «Некто Ми». Рома всего лишь вмешался в чужой грубый разговор. Они должны были разойтись через несколько сообщений — но остались.</p>
+          <p>Переезд в Ростов превратил экранное знакомство в настоящее. Рядом оказались родители, младший Артём, жёсткий старший брат Арсен, семьи Ромы, вынужденные поездки в Бердянск и день, когда падение с крыши УАЗа изменило привычный порядок жизни.</p>
           <blockquote>
             <span class="quote-mark">“</span>
             <p>Не чтобы обещать вечность, а чтобы честно прожить сегодняшний день.</p>
@@ -114,11 +114,46 @@
       </div>
     </section>
 
+    <section class="family-section section" id="families" aria-labelledby="familyTitle">
+      <div class="container family-heading">
+        <div>
+          <p class="eyebrow light"><span></span> две семьи</p>
+          <h2 id="familyTitle">Любят по-разному.<br><em>Ошибаются громко.</em></h2>
+        </div>
+        <p>Здесь намеренно нет описаний внешности. Персонажей раскрывают поступки, разговоры, рост как факт канона и вещи, которые остаются в кадре.</p>
+      </div>
+
+      <div class="container family-grid">
+        <article class="family-panel amira-family">
+          <header><span>Дом Амиры</span><h3>Защита, которая иногда становится клеткой</h3></header>
+          <ul class="family-list">
+            <li><strong>Арчи</strong><span>Амирина овчарка. Чувствует конфликты раньше людей и постепенно принимает Рому.</span><small>верность</small></li>
+            <li><strong>Арсен</strong><span>Старший брат, 24 года, есть девушка. Серьёзный и намного жёстче отца относится к Роме.</span><small>24 года</small></li>
+            <li><strong>Мама</strong><span>Часто злится на дочь, особенно когда боится потерять контроль. Учится сначала спрашивать.</span><small>тревога</small></li>
+            <li><strong>Отец</strong><span>Серьёзный, но добрый. Не разрешает Арсену превращать заботу в допрос.</span><small>опора</small></li>
+            <li><strong>Тётя</strong><span>Живёт в Бердянске. Не заставляет Амиру любить город, хотя родители заставляют туда ездить.</span><small>Бердянск</small></li>
+          </ul>
+        </article>
+
+        <article class="family-panel roma-family">
+          <header><span>Дом Ромы</span><h3>Строгость, дружба и один тяжёлый перелом</h3></header>
+          <ul class="family-list">
+            <li><strong>Мама</strong><span>Милая и добрая, иногда строгая. В тяжёлый момент держит семью собранной.</span><small>160 см</small></li>
+            <li><strong>Отец</strong><span>Строгий, но добрый к Амире. После падения с УАЗа проходит долгое восстановление.</span><small>183 см</small></li>
+            <li><strong>Дядя</strong><span>Настоящий дружбан Ромы: помогает с УАЗом, больницей и говорит честно без лекций.</span><small>190 см</small></li>
+            <li><strong>Тётя</strong><span>Тоже близкий друг Ромы. Поддерживает семью делами и не даёт страху захватить весь дом.</span><small>160 см</small></li>
+            <li><strong>Тимур</strong><span>Двоюродный брат. Хвастался шестью девушками в четырнадцать; Рома презирает его отношение к людям.</span><small>конфликт</small></li>
+          </ul>
+          <div class="injury-note"><span>Ключевая арка</span><p>Падение с крыши УАЗа: восемь рёбер справа со стороны спины и перелом ключицы со смещением — без натурализма, с больницей и восстановлением.</p></div>
+        </article>
+      </div>
+    </section>
+
     <section class="route-section section" aria-labelledby="routeTitle">
       <div class="container">
         <div class="route-header">
           <p class="eyebrow light"><span></span> путь истории</p>
-          <h2 id="routeTitle">От первого сообщения<br>до двух новых маршрутов</h2>
+          <h2 id="routeTitle">От первого сообщения<br>до открытой главы 61</h2>
         </div>
 
         <ol class="route-line">
@@ -136,15 +171,21 @@
           </li>
           <li>
             <span class="route-dot"></span>
-            <time>Год спустя</time>
-            <h3>Два дома</h3>
-            <p>Армавир остаётся памятью, Ростов становится настоящим, а фотография получает имя книги.</p>
+            <time>Лето</time>
+            <h3>Бердянск</h3>
+            <p>Родители заставляют Амиру ехать к тёте. Нелюбимый город становится местом честного разговора и новой серии.</p>
+          </li>
+          <li>
+            <span class="route-dot"></span>
+            <time>Осень</time>
+            <h3>УАЗ</h3>
+            <p>Одно падение собирает обе семьи вокруг больницы и заставляет Рому перестать прятать страх за молчанием.</p>
           </li>
           <li>
             <span class="route-dot"></span>
             <time>Следующее лето</time>
-            <h3>Продолжение</h3>
-            <p>Казань и море зовут их в разные стороны. На первой странице новой тетради — «Не забыть вернуться».</p>
+            <h3>Глава 61</h3>
+            <p>Хороший конец уже случился. В красной тетради остаётся открытая строка: «Бердянск — не дом».</p>
           </li>
         </ol>
       </div>
@@ -154,23 +195,31 @@
       <div class="container gallery-heading">
         <div>
           <p class="eyebrow dark"><span></span> визуальная история</p>
-          <h2 id="galleryTitle">Три кадра.<br><em>Три точки пути.</em></h2>
+          <h2 id="galleryTitle">Сто двадцать кадров.<br><em>Ни одного лица.</em></h2>
         </div>
-        <p>Не портреты и не попытка показать «идеальные лица». Это настроение мест, в которых разворачивается история.</p>
+        <p>В каждой главе — по две отдельные фотосцены. Люди показаны со спины, через руки, предметы и пространство, поэтому внешность остаётся воображению читателя.</p>
       </div>
 
       <div class="gallery-grid container-wide">
         <figure class="gallery-item gallery-main">
-          <img src="assets/hero.webp" alt="Двое подростков под зонтом у книжного магазина в дождливом Ростове" loading="lazy">
+          <img src="assets/scenes/ch08-a.webp" alt="Первая встреча у книжного магазина, подростки показаны со спины" loading="lazy">
           <figcaption><span>01</span><div><strong>Первая встреча</strong><small>Ростов-на-Дону · 14:53</small></div></figcaption>
         </figure>
         <figure class="gallery-item">
-          <img src="assets/armavir.webp" alt="Старый двор в Армавире с зелёной скамейкой и голубыми занавесками" loading="lazy">
-          <figcaption><span>02</span><div><strong>Окно, которое осталось</strong><small>Армавир · возвращение</small></div></figcaption>
+          <img src="assets/scenes/ch28-a.webp" alt="Камера и руки тёти у окна в Бердянске, лица не показаны" loading="lazy">
+          <figcaption><span>02</span><div><strong>Нелюбимый город</strong><small>Бердянск · вынужденная поездка</small></div></figcaption>
         </figure>
         <figure class="gallery-item">
-          <img src="assets/journey.webp" alt="Амира и Рома между двумя поездами на рассвете" loading="lazy">
-          <figcaption><span>03</span><div><strong>После семи минут</strong><small>Два маршрута · одно возвращение</small></div></figcaption>
+          <img src="assets/scenes/ch43-b.webp" alt="Упавшая лестница рядом с УАЗом и свет скорой, людей не видно" loading="lazy">
+          <figcaption><span>03</span><div><strong>День падения</strong><small>УАЗ · перелом семейной жизни</small></div></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/scenes/ch44-b.webp" alt="Больничный коридор и руки с телефоном, лица не показаны" loading="lazy">
+          <figcaption><span>04</span><div><strong>До рассвета</strong><small>Больница · семь секунд голоса</small></div></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/scenes/ch60-a.webp" alt="Финальная выставка, люди со спины и овчарка между ними" loading="lazy">
+          <figcaption><span>05</span><div><strong>Открытая страница</strong><small>Глава 60 · хороший конец</small></div></figcaption>
         </figure>
       </div>
     </section>
@@ -181,7 +230,7 @@
           <p class="eyebrow light"><span></span> полная версия</p>
           <h2 id="readerSectionTitle">Открой книгу.<br><em>Остальное подождёт.</em></h2>
         </div>
-        <p>Все 60 глав доступны прямо здесь. Сайт запомнит последнюю главу, выбранный размер текста, тему и закладки — только на этом устройстве.</p>
+        <p>Все 60 расширенных глав и 120 кадров доступны прямо здесь. Сайт запомнит последнюю главу, позицию, размер текста, тему и закладки — только на этом устройстве.</p>
       </div>
 
       <div class="reader-shell" id="readerShell">
@@ -289,18 +338,31 @@
       </div>
       <div class="footer-links">
         <a href="#story">О книге</a>
-        <a href="#gallery">Кадры</a>
+        <a href="#families">Семьи</a>
+        <a href="#gallery">120 кадров</a>
         <a href="#reader">Все главы</a>
         <a href="https://github.com/roman161rusrosrov-cmyk/Fanfik" target="_blank" rel="noreferrer">GitHub ↗</a>
       </div>
       <div class="footer-note">
         <span>60 глав</span>
-        <span>58 681 слов</span>
+        <span>71 295 слов</span>
+        <span>120 кадров без лиц</span>
         <span>Хороший конец. Открытое продолжение.</span>
       </div>
     </div>
     <div class="container footer-bottom"><span>Сделано для истории Лисёнка и Котика</span><span id="footerYear"></span></div>
   </footer>
+
+  <div class="scene-lightbox" id="sceneLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр фотосцены">
+    <button class="scene-lightbox-close" id="sceneLightboxClose" type="button" aria-label="Закрыть фотосцену">×</button>
+    <div class="scene-lightbox-inner">
+      <img id="sceneLightboxImage" src="assets/scenes/ch01-a.webp" alt="">
+      <div class="scene-lightbox-copy">
+        <span id="sceneLightboxMeta">Глава 1 · кадр 1 из 2</span>
+        <strong id="sceneLightboxCaption">Арчи у Амириной кровати</strong>
+      </div>
+    </div>
+  </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 

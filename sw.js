@@ -1,16 +1,20 @@
-const CACHE = "seven-minutes-v2";
+const CACHE = "seven-minutes-v2-family-edition";
 const CORE = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
-  "./family-arc.js",
   "./story.html",
   "./manifest.webmanifest",
   "./favicon.svg",
   "./assets/hero.webp",
   "./assets/armavir.webp",
-  "./assets/journey.webp"
+  "./assets/journey.webp",
+  "./assets/scenes/ch08-a.webp",
+  "./assets/scenes/ch28-a.webp",
+  "./assets/scenes/ch43-b.webp",
+  "./assets/scenes/ch44-b.webp",
+  "./assets/scenes/ch60-a.webp"
 ];
 
 self.addEventListener("install", event => {

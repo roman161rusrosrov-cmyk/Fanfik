@@ -43,6 +43,11 @@
     previousLabel: document.getElementById("previousLabel"),
     nextLabel: document.getElementById("nextLabel"),
     savedStatus: document.getElementById("savedStatus"),
+    sceneLightbox: document.getElementById("sceneLightbox"),
+    sceneLightboxImage: document.getElementById("sceneLightboxImage"),
+    sceneLightboxCaption: document.getElementById("sceneLightboxCaption"),
+    sceneLightboxMeta: document.getElementById("sceneLightboxMeta"),
+    sceneLightboxClose: document.getElementById("sceneLightboxClose"),
     toast: document.getElementById("toast"),
     footerYear: document.getElementById("footerYear")
   };
@@ -59,6 +64,71 @@
     scrollSaveTimer: null,
     ready: false
   };
+
+  const SCENE_CAPTIONS = [
+    ["Арчи у Амириной кровати", "Первый разговор в автобусе"],
+    ["Сообщение по дороге в школу", "Арчи ждёт у библиотеки"],
+    ["Семейный вечер Ромы", "Чат, который стал важным"],
+    ["Коробки перед переездом", "Семья решает за столом"],
+    ["Двор, который придётся оставить", "Последняя коробка Армавира"],
+    ["Арчи среди вещей", "Дорога в новый город"],
+    ["Арчи осваивает Ростов", "Скамейка старого двора"],
+    ["Первая встреча у книжного", "Арчи принимает Рому"],
+    ["Молчание в переписке", "Разговор взрослых за столом"],
+    ["Дождливый маршрут вдвоём", "Первое семейное знакомство"],
+    ["Окно, которое осталось", "Арчи у новой двери"],
+    ["Руки в зимних перчатках", "Книжный свет под дождём"],
+    ["Утреннее обещание", "Арсен задаёт вопросы"],
+    ["Новогодний семейный стол", "Арчи и новый дом"],
+    ["Две минуты без телефонов", "Город после полуночи"],
+    ["Слово в телефоне", "Серьёзный разговор о границах"],
+    ["Арчи остаётся рядом", "Помощь без лишних слов"],
+    ["Семья замечает ревность", "Дорога после честного разговора"],
+    ["Обязанности за общим столом", "Арчи слышит очередную ссору"],
+    ["Февральские руки", "Правила, которые общие для всех"],
+    ["Старый двор Армавира", "Решение о Бердянске"],
+    ["Возвращение к старому окну", "Семейная дорога"],
+    ["Вечер у УАЗа", "Сообщение перед ремонтом"],
+    ["Друзья у книжного", "Арсен снова проверяет"],
+    ["Красная лента и два берега", "Семейный спор о поездке"],
+    ["Чемодан снова открыт", "Разговор, который стал громче"],
+    ["Последняя зимняя прогулка", "Два разных маршрута"],
+    ["Камера у тётиного окна", "Первый кадр Бердянска"],
+    ["Два берега в одном дневнике", "Тётя оставляет семь минут"],
+    ["Бердянск без любви", "Красная лента на столе"],
+    ["Встреча после двух дорог", "Семьи рядом"],
+    ["Плёнка и летние находки", "УАЗ на старом снимке"],
+    ["Домашний график", "Арчи под общим столом"],
+    ["Автобус возвращается", "Арчи узнаёт Рому"],
+    ["Первая выставка", "Кадр из Бердянска"],
+    ["Жёсткий разговор Арсена", "Сообщение о новой школе"],
+    ["Фонарь у УАЗа", "Ожидание вступительного теста"],
+    ["Семейное поздравление", "УАЗ снова во дворе"],
+    ["Шестнадцатилетие Амиры", "Арчи под праздничным столом"],
+    ["Четырнадцатилетие Ромы", "Первый семейный показ"],
+    ["Кадр первой встречи", "Год спустя — те же руки"],
+    ["Обычный вечер у УАЗа", "Первый день новой школы"],
+    ["Последний ремонт до дождя", "Свет скорой во дворе"],
+    ["Упавшая лестница", "Больничный коридор до рассвета"],
+    ["Телефон в больнице", "Пустое место на выставке"],
+    ["Семь минут правды", "Книжный магазин после ссоры"],
+    ["Семья держится вместе", "Дежурство в больнице"],
+    ["Фотография «Семь минут»", "Восстановление дома"],
+    ["Каталог на стене", "Две семьи в одном зале"],
+    ["Красная лента проекта", "Идея из больничных минут"],
+    ["Поезд в Армавир", "Скамейка старого двора"],
+    ["Окно прошлого", "Тётины руки в Бердянске"],
+    ["Встреча на платформе", "Арчи связывает их поводком"],
+    ["Школьный чат", "Семья защищает, не отбирая голос"],
+    ["Новогодний снег", "Общий стол двух семей"],
+    ["Городской финал", "УАЗ после восстановления"],
+    ["Собеседование Амиры", "Снимок из нелюбимого города"],
+    ["Пять дней пути", "Два города на одном столе"],
+    ["Утренний поезд домой", "Руки, которые дождались"],
+    ["Финальная выставка", "Дорога к главе шестьдесят первой"]
+  ];
+
+  const sceneState = { chapter: 1, slot: 0 };
 
   function clamp(value, min, max) {
     return Math.min(max, Math.max(min, value));
@@ -240,6 +310,75 @@
     if (paragraphs[0]?.classList.contains("chat-line")) {
       paragraphs[0].style.setProperty("clear", "both");
     }
+
+    insertChapterScenes(paragraphs);
+  }
+
+  function scenePath(chapter, slot) {
+    const chapterId = String(chapter).padStart(2, "0");
+    return `assets/scenes/ch${chapterId}-${slot === 0 ? "a" : "b"}.webp`;
+  }
+
+  function createSceneFigure(chapter, slot) {
+    const caption = SCENE_CAPTIONS[chapter - 1]?.[slot] || `Кадр главы ${chapter}`;
+    const figure = document.createElement("figure");
+    figure.className = `chapter-scene chapter-scene-${slot === 0 ? "wide" : "inset"}`;
+
+    const button = document.createElement("button");
+    button.className = "chapter-scene-button";
+    button.type = "button";
+    button.dataset.sceneChapter = String(chapter);
+    button.dataset.sceneSlot = String(slot);
+    button.setAttribute("aria-label", `Открыть кадр: ${caption}`);
+
+    const image = document.createElement("img");
+    image.src = scenePath(chapter, slot);
+    image.alt = `${caption}. Лица людей не показаны.`;
+    image.loading = "lazy";
+    image.decoding = "async";
+    image.width = 960;
+    image.height = 540;
+
+    const icon = document.createElement("span");
+    icon.className = "chapter-scene-expand";
+    icon.setAttribute("aria-hidden", "true");
+    icon.textContent = "↗";
+
+    button.append(image, icon);
+
+    const figcaption = document.createElement("figcaption");
+    figcaption.innerHTML = `<span>Кадр ${String(slot + 1).padStart(2, "0")}</span><strong>${escapeHTML(caption)}</strong>`;
+    figure.append(button, figcaption);
+    return figure;
+  }
+
+  function insertChapterScenes(paragraphs) {
+    if (!paragraphs.length) return;
+    const firstScene = createSceneFigure(state.current, 0);
+    const secondScene = createSceneFigure(state.current, 1);
+    const firstAnchor = paragraphs[Math.min(5, Math.max(1, Math.floor(paragraphs.length * .12)))];
+    const secondAnchor = paragraphs[Math.min(paragraphs.length - 1, Math.max(4, Math.floor(paragraphs.length * .62)))];
+    firstAnchor.after(firstScene);
+    secondAnchor.after(secondScene);
+  }
+
+  function openSceneLightbox(chapter, slot) {
+    const normalizedSlot = slot === 1 ? 1 : 0;
+    const caption = SCENE_CAPTIONS[chapter - 1]?.[normalizedSlot] || `Кадр главы ${chapter}`;
+    sceneState.chapter = chapter;
+    sceneState.slot = normalizedSlot;
+    els.sceneLightboxImage.src = scenePath(chapter, normalizedSlot);
+    els.sceneLightboxImage.alt = `${caption}. Лица людей не показаны.`;
+    els.sceneLightboxCaption.textContent = caption;
+    els.sceneLightboxMeta.textContent = `Глава ${chapter} · кадр ${normalizedSlot + 1} из 2`;
+    els.sceneLightbox.classList.add("open");
+    els.sceneLightbox.setAttribute("aria-hidden", "false");
+    els.sceneLightboxClose.focus();
+  }
+
+  function closeSceneLightbox() {
+    els.sceneLightbox.classList.remove("open");
+    els.sceneLightbox.setAttribute("aria-hidden", "true");
   }
 
   function updateBookmarkButton() {
@@ -385,6 +524,17 @@
       if (button) selectChapter(Number(button.dataset.chapter));
     });
 
+    els.chapterContent.addEventListener("click", event => {
+      const button = event.target.closest("[data-scene-chapter]");
+      if (!button) return;
+      openSceneLightbox(Number(button.dataset.sceneChapter), Number(button.dataset.sceneSlot));
+    });
+
+    els.sceneLightboxClose.addEventListener("click", closeSceneLightbox);
+    els.sceneLightbox.addEventListener("click", event => {
+      if (event.target === els.sceneLightbox) closeSceneLightbox();
+    });
+
     els.chapterSearch.addEventListener("input", event => {
       state.search = event.target.value;
       renderChapterList();
@@ -430,7 +580,8 @@
         els.chapterSearch.focus();
       }
       if (event.key === "Escape") {
-        if (els.body.classList.contains("sidebar-open")) closeSidebar();
+        if (els.sceneLightbox.classList.contains("open")) closeSceneLightbox();
+        else if (els.body.classList.contains("sidebar-open")) closeSidebar();
         else if (els.body.classList.contains("focus-mode")) toggleFocusMode();
       }
       if (!typing && state.ready && els.body.classList.contains("focus-mode")) {
