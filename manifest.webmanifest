@@ -1,0 +1,19 @@
+{
+  "name": "Семь минут — история Амиры и Ромы",
+  "short_name": "Семь минут",
+  "description": "Фанфик о Лисёнке и Котике — 60 глав в атмосферной интерактивной читалке.",
+  "lang": "ru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0e13",
+  "theme_color": "#0b0e13",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
