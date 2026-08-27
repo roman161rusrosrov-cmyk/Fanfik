@@ -1,9 +1,10 @@
-const CACHE = "seven-minutes-v1";
+const CACHE = "seven-minutes-v2";
 const CORE = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
+  "./family-arc.js",
   "./story.html",
   "./manifest.webmanifest",
   "./favicon.svg",
