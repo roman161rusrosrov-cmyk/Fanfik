@@ -756,6 +756,20 @@ html[data-theme="light"] .theme-toggle .icon-sun {
   flex-direction: column;
 }
 
+.friends-panel {
+  grid-column: 1 / -1;
+}
+
+.friends-panel .family-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 38px;
+}
+
+.friends-panel .trust-note {
+  max-width: none;
+}
+
 .family-panel header {
   padding-bottom: 30px;
   border-bottom: 1px solid rgba(255, 255, 255, .1);
@@ -1988,6 +2002,15 @@ html[data-theme="light"] .theme-toggle .icon-sun {
 
   .family-grid {
     grid-template-columns: 1fr;
+  }
+
+  .friends-panel {
+    grid-column: auto;
+  }
+
+  .friends-panel .family-list {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .character-card {

@@ -1,4 +1,4 @@
-const CACHE = "seven-minutes-v2-family-edition";
+const CACHE = "seven-minutes-v3-trust-edition";
 const CORE = [
   "./",
   "./index.html",
